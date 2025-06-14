@@ -126,88 +126,38 @@ git add .
 git commit -m "Initial commit - iTRCA publication website"
 ```
 
-### Step 4.4: Update Git Remote Configuration
+### Step 4.4: Set Up Remote Repository
 
-#### Check Existing Remote
+#### Check and Update Remote
 ```bash
 # Check current remote configuration
 git remote -v
 
-# This will show current remote URLs like:
-# origin  https://github.com/old-repo/old-name.git (fetch)
-# origin  https://github.com/old-repo/old-name.git (push)
-```
-
-#### Option A: Update Existing Remote (Recommended)
-```bash
-# Update existing remote to point to new repository
+# If remote already exists, update it to point to your new repository
 git remote set-url origin https://github.com/[org-name]/[org-name].github.io.git
 
 # Example:
 git remote set-url origin https://github.com/bci-itrca/bci-itrca.github.io.git
 
-# Verify the change
-git remote -v
-```
-
-#### Option B: Remove and Re-add Remote
-```bash
-# Remove existing remote
-git remote remove origin
-
-# Add new remote
+# If no remote exists, add it
 git remote add origin https://github.com/[org-name]/[org-name].github.io.git
 
-# Example:
-git remote add origin https://github.com/bci-itrca/bci-itrca.github.io.git
-
-# Verify remote setup
+# Verify the setup
 git remote -v
 ```
 
-#### Option C: Add Multiple Remotes (Advanced)
+### Step 4.5: Common Remote Errors
+
+#### "fatal: remote origin already exists"
 ```bash
-# Keep original remote as backup
-git remote rename origin old-origin
-
-# Add new remote as origin
-git remote add origin https://github.com/[org-name]/[org-name].github.io.git
-
-# Add additional remotes if needed
-git remote add backup https://github.com/backup-account/backup-repo.git
-
-# View all remotes
-git remote -v
-```
-
-### Step 4.5: Handle Remote Configuration Errors
-
-#### Error: "fatal: remote origin already exists"
-```bash
-# Solution 1: Update existing remote
+# Update the existing remote
 git remote set-url origin https://github.com/[org-name]/[org-name].github.io.git
-
-# Solution 2: Remove and re-add
-git remote remove origin
-git remote add origin https://github.com/[org-name]/[org-name].github.io.git
 ```
 
-#### Error: "fatal: No such remote 'origin'"
+#### "fatal: No such remote 'origin'"
 ```bash
 # Add remote for the first time
 git remote add origin https://github.com/[org-name]/[org-name].github.io.git
-```
-
-#### Verify Remote Configuration
-```bash
-# Check remote URLs
-git remote -v
-
-# Get detailed remote information
-git remote show origin
-
-# Test connection (optional)
-git ls-remote origin
 ```
 
 ---
