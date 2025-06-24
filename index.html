@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+  <!-- Replace the content tag with appropriate information -->
+  <meta name="description" content="DESCRIPTION META TAG">
+  <meta property="og:title" content="SOCIAL MEDIA TITLE TAG"/>
+  <meta property="og:description" content="SOCIAL MEDIA DESCRIPTION TAG TAG"/>
+  <meta property="og:url" content="URL OF THE WEBSITE"/>
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+  <meta property="og:image" content="static/image/your_banner_image.png" />
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+
+
+  <meta name="twitter:title" content="TWITTER BANNER TITLE META TAG">
+  <meta name="twitter:description" content="TWITTER BANNER DESCRIPTION META TAG">
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
+  <meta name="twitter:image" content="static/images/your_twitter_banner_image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- Keywords for your paper to be indexed by-->
+  <meta name="keywords" content="KEYWORDS SHOULD BE PLACED HERE">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <title>Physics-Embedded Neural Networks for sEMG-based Continuous Motion Estimation</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤖</text></svg>">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+  rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+  
+  <!-- MathJax for LaTeX math rendering -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  
+  <!-- Marked.js for Markdown parsing -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      }
+    };
+    
+    // Render Markdown content when page loads
+    document.addEventListener('DOMContentLoaded', function() {
+      const markdownElements = document.querySelectorAll('.markdown-content');
+      markdownElements.forEach(function(element) {
+        const markdownText = element.getAttribute('data-markdown');
+        element.innerHTML = marked.parse(markdownText);
+      });
+      
+      // Re-render MathJax after Markdown is processed
+      if (window.MathJax) {
+        MathJax.typesetPromise();
+      }
+    });
+  </script>
+</head>
+<body>
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title" style="margin-bottom: 0.8rem;">Physics-Embedded Neural Networks for sEMG-based Continuous Motion Estimation</h1>
+            <div class="is-size-5 publication-authors" style="margin-bottom: 0.6rem;">
+              <!-- Paper authors -->
+              <span class="author-block">
+                Wending Heng<sup>1</sup>,</span>
+                <span class="author-block">
+                  Chaoyuan Liang<sup>1</sup>,</span>
+                  <span class="author-block">
+                    Yihui Zhao<sup>2</sup>,</span>
+                  <span class="author-block">
+                    Zhiqiang Zhang<sup>3</sup>,</span>
+                  <span class="author-block">
+                    Glen Cooper<sup>1</sup>,</span>
+                  <span class="author-block">
+                    <a href="https://alvishub.github.io/" target="_blank">Zhenhong Li</a><sup>1,†</sup>
+                  </span>
+                  </div>
+
+                  <div class="is-size-5 publication-authors" style="margin-top: 0.8rem;">
+                    <span class="author-block" style="margin-bottom: 0.4rem; display: block;"><sup>1</sup>University of Manchester, <sup>2</sup>University of Bristol, <sup>3</sup>University of Leeds</span>
+                    <span class="author-block" style="margin-bottom: 0.5rem; display: block;"> IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)</span>
+                    <span class="eql-cntrb"><sup>†</sup>Corresponding Author: <a href="mailto:zhenhong.li@manchester.ac.uk">zhenhong.li@manchester.ac.uk</a></span>
+                  </div>
+
+                  <div class="column has-text-centered" style="margin-top: 1.2rem;">
+                    <div class="publication-links">
+                         <!-- Arxiv PDF link -->
+                      <span class="link-block">
+                        <a href="https://ieeexplore.ieee.org/document/11028588" target="_blank"
+                        class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon">
+                          <i class="fas fa-file-pdf"></i>
+                        </span>
+                        <span>Paper</span>
+                      </a>
+                    </span>
+
+                    <!-- Supplementary PDF link -->
+                    <!-- <span class="link-block">
+                      <a href="static/pdfs/supplementary_material.pdf" target="_blank"
+                      class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                        <i class="fas fa-file-pdf"></i>
+                      </span>
+                      <span>Supplementary</span>
+                    </a>
+                  </span> -->
+
+                  <!-- Github link -->
+<!--                   <span class="link-block">
+                    <a href="https://github.com/YOUR REPO HERE" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span> -->
+
+                <!-- ArXiv abstract Link -->
+                <span class="link-block">
+                  <a href="https://arxiv.org/abs/2506.10933" target="_blank"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<!-- Paper abstract -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Accurately decoding human motion intentions from surface electromyography (sEMG) is essential for myoelectric control and has wide applications in rehabilitation robotics and assistive technologies. However, existing sEMG-based motion estimation methods often rely on subject-specific musculoskeletal (MSK) models that are difficult to calibrate, or purely data-driven models that lack physiological consistency. This paper introduces a novel Physics-Embedded Neural Network (PENN) that combines interpretable  MSK forward-dynamics with data-driven residual learning, thereby preserving physiological consistency while achieving accurate motion estimation. The PENN employs a recursive temporal structure to propagate historical estimates and a lightweight convolutional neural network for residual correction, leading to robust and temporally coherent estimations. A two-phase training strategy is designed for PENN. Experimental evaluations on six healthy subjects show that PENN outperforms state-of-the-art baseline methods in both root mean square error (RMSE) and $R^2$ metrics. 
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End paper abstract -->
+
+
+
+
+
+<!-- Single Image Section -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3 has-text-centered">Methodology</h2>
+          <div class="item">
+            <!-- Your image here -->
+            <img src="static/images/PENN_Framework.png" alt="Research Methodology"/>
+            <div class="content has-text-justified" style="margin-top: 1.5rem; margin-bottom: 1rem;">
+              <h6 class="subtitle has-text-centered">
+              Overview of the proposed PENN framework.
+              </h6>
+              <p>
+                The PENN framework proposed in this paper adopts a hybrid architecture, comprising a physics-embedded module and a CNN-based residual learning module. In the physics-embedded module, MSK forward dynamics are integrated to provide physiologically inconsistent motion estimation. The CNN-based residual learning module captures nonlinear residuals that the physics-embedded module cannot model, effectively bridging the gap between MSK forward dynamics and the complex EMG-to-kinematics mapping.  It adopts a recursive temporal context integration strategy, where pre-processed sEMG signals at the current time step and historical estimations of joint angles at the previous two time steps are input into the recursive structure unit. Then, the current output of the physics-embedded module is incorporated into the physical fusion layer (a fully connected layer) to enhance residual learning.
+              </p>
+              <p>
+                This module leverages a Hill-based forward dynamics model to generate an intermediate estimate  $\theta^{Phy}_{t}$ using previous estimates $\hat{\theta}_{t-1}$, $\hat{\theta}_{t-2}$ and pre-processed sEMG signals $u_{i,t}$, where $t$ is the time step and $i=1,\cdots,N$  is the index of the muscle. The Hill-based forward dynamics model in this paper includes Hill-type muscle models (muscle activation models, muscle-tendon dynamics models) and a joint dynamics model. Hill-type muscle models are widely used in model-based approaches to describe the sEMG-force relationship for individual muscles. To reduce numerical stiffness in the muscle-tendon dynamics model, we assume the tendon to be rigid, which implies that the pennated muscle element, comprising a contractile element in parallel with a passive elastic element, is connected to an inextensible tendon element.  The following provides a detailed explanation of the Hill-based forward dynamics model.
+              </p>
+              </p>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End single image section -->
+
+
+
+<!-- Experimental Results Section -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3 has-text-centered">Main Results</h2>
+          <div class="item">
+            <!-- Multi-subfigure layout -->
+            <div class="columns is-multiline is-centered">
+              <div class="column is-half">
+                <figure class="image">
+                  <img src="static/images/Loss.png" alt="Value of loss function $L_{total}$ during training"/>
+                  <figcaption class="has-text-centered" style="margin-top: 0.5rem;">
+                    <strong>(a)</strong>
+                  </figcaption>
+                </figure>
+              </div>
+              <div class="column is-half">
+                <figure class="image">
+                  <img src="static/images/Comparison.png" alt="Wrist joint angle estimated by PENN, CNN-LSTM, and Bi-LSTM for Subject two"/>
+                  <figcaption class="has-text-centered" style="margin-top: 0.5rem;">
+                    <strong>(b) </strong>
+                  </figcaption>
+                </figure>
+              </div>
+            </div>
+            
+            <div class="content has-text-justified" style="margin-top: 2rem;">
+            <p class="has-text-centered">
+              <span>
+                <strong>Figure 1.</strong> (a) Value of loss function $L_{total}$ during training.
+              </span><br>
+              <span>
+                (b) Wrist joint angle estimated by PENN, CNN-LSTM, and Bi-LSTM for Subject two
+              </span>
+            </p>
+                The figure 1 (a) shows the Value of loss function $L_{total}$ during training. (b) shows the wrist joint angle estimated by PENN, CNN-LSTM, and Bi-LSTM for Subject two. The results demonstrate that the proposed PENN framework achieves superior performance in estimating wrist joint angles compared to the baseline methods CNN-LSTM and Bi-LSTM. The loss function $L_{total}$ converges to a low value, indicating effective training of the model.
+              <p>
+                The figure 1 (b) shows the ground truth wrist angle $\theta$ and estimated angle $\hat{\theta}$ from PENN and the baseline methods. The angle trajectory estimated by PENN closely aligns with the ground truth, maintaining temporal coherence and minimizing phase lag.  In contrast, the baseline models show larger deviations and inconsistencies, particularly during dynamic transitions. These results demonstrate the improved estimation accuracy and temporal consistency of PENN. 
+              </p>        
+            </div>
+            <!-- Subject Selection Analysis - Figure 2 -->
+            <div style="margin-top: 1.5rem;">
+              
+              <div class="item">
+                <!-- Multi-subfigure layout for subject selection -->
+                <div class="columns is-multiline is-centered">
+                  <!-- First row: two subfigures -->
+                  <div class="column is-two-thirds">
+                    <figure class="image">
+                      <img src="static/images/Paried_t.png" alt="Average recognition accuracy across all subjects"/>
+                      <figcaption class="has-text-centered" style="margin-top: 0.5rem;">
+                        <strong></strong>
+                      </figcaption>
+                    </figure>
+                  </div>
+                </div>
+                
+                <div class="content has-text-justified" style="margin-top: 2rem;">
+                  <p class="has-text-centered" style="font-style: italic; margin-bottom: 1.5rem;">
+                    <strong>Figure 2.</strong> illustrates the differences among the three methods based on paired t-test results. Asterisks indicate the statistically significant difference between two methods (* for $p < 0.05$, ** for $p < 0.01$). 
+                  
+                  <p>
+                    Figure 2 shows that PENN not only significantly improves estimation accuracy, but also exhibits consistently lower variance across subjects, which implies enhanced robustness to inter-subject differences.
+                  </p>
+                  
+                </div>
+              </div>
+            </div>
+            
+            <!-- Transfer Learning Comparison - Figure 3 -->
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End experimental results section -->
+
+
+
+
+
+
+
+
+<!-- Youtube video -->
+<!-- <section class="hero is-small is-light">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3">Video Presentation</h2>
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          
+          <div class="publication-video">
+            <iframe src="https://www.youtube.com/embed/JkaxUblCGz0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+<!-- End youtube video -->
+
+
+
+
+
+
+
+<!-- Paper poster -->
+<!-- <section class="hero is-small is-light">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title">Poster</h2>
+
+      <iframe  src="static/pdfs/sample.pdf" width="100%" height="550">
+          </iframe>
+        
+      </div>
+    </div>
+  </section> -->
+<!--End paper poster -->
+
+
+
+
+<!--BibTex citation -->
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title has-text-centered">BibTeX</h2>
+      <pre><code>@ARTICLE{11028588,
+  author={Heng, Wending and Yihui, Zhao and Zhang, Zhiqiang and Xie, Sheng Quan and Lanzon, Alexander and Heath, William P. and Li, Zhenhong},
+  journal={IEEE Journal of Biomedical and Health Informatics}, 
+  title={Instance-Based Transfer Learning with Similarity-Aware Subject Selection for Cross-Subject SSVEP-Based BCIs}, 
+  year={2025},
+  volume={},
+  number={},
+  pages={1-11},
+  doi={10.1109/JBHI.2025.3577813}}</code></pre>
+    </div>
+</section>
+<!--End BibTex citation -->
+
+<!-- Lab Logo Section -->
+<section class="section" style="margin-top: -6rem;">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content has-text-centered">
+          <h2 class="title is-4"></h2>
+          <figure class="image is-inline-block" style="max-width: 300px;">
+            <a href="https://neurorobotics-uom.github.io/" target="_blank">
+              <img src="static/images/lab_logo_black2.png" alt="Lab Logo" style="max-height: 125px; width: auto;">
+            </a>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--End Lab Logo Section -->
+
+
+  <footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content has-text-centered">
+
+          <p>
+            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> 
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Statcounter tracking code -->
+  
+<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+    <!-- End of Statcounter Code -->
+
+  </body>
+  </html>
