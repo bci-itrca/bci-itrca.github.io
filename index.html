@@ -24,7 +24,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-  <title>Physics-Embedded Neural Networks for sEMG-based Continuous Motion Estimation</title>
+  <title>Instance-Based Transfer Learning with Similarity-Aware Subject Selection for Cross-Subject SSVEP-Based BCIs</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤖</text></svg>">
   
   <!-- Preconnect to external domains for faster loading -->
@@ -64,32 +64,35 @@
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title" style="margin-bottom: 0.8rem;">Physics-Embedded Neural Networks for sEMG-based Continuous Motion Estimation</h1>
+            <h1 class="title is-1 publication-title" style="margin-bottom: 0.8rem;">Instance-Based Transfer Learning with Similarity-Aware Subject Selection for Cross-Subject SSVEP-Based BCIs</h1>
             <div class="is-size-5 publication-authors" style="margin-bottom: 0.6rem;">
               <!-- Paper authors -->
               <span class="author-block">
-                Wending Heng<sup>1</sup>,</span>
+                Ziwen Wang<sup>1</sup>,</span>
                 <span class="author-block">
-                  Chaoyuan Liang<sup>1</sup>,</span>
-                  <span class="author-block">
-                    Yihui Zhao<sup>2</sup>,</span>
+                  Yue Zhang<sup>2</sup>,</span>
                   <span class="author-block">
                     Zhiqiang Zhang<sup>3</sup>,</span>
                   <span class="author-block">
-                    Glen Cooper<sup>1</sup>,</span>
+                    Sheng Quan Xie<sup>3</sup>,</span>
+                  <span class="author-block">
+                    Alexander Lanzon<sup>1</sup>,</span>
+                  <span class="author-block">
+                    William P. Heath<sup>1</sup>,</span>
                   <span class="author-block">
                     <a href="https://alvishub.github.io/" target="_blank">Zhenhong Li</a><sup>1,†</sup>
                   </span>
                   </div>
 
                   <div class="is-size-5 publication-authors" style="margin-top: 0.8rem;">
-                    <span class="author-block" style="margin-bottom: 0.4rem; display: block;"><sup>1</sup>University of Manchester, <sup>2</sup>University of Bristol, <sup>3</sup>University of Leeds</span>
-                    <span class="author-block" style="margin-bottom: 0.5rem; display: block;">IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)</span>
+                    <span class="author-block" style="margin-bottom: 0.4rem; display: block;"><sup>1</sup>University of Manchester, <sup>2</sup>University of Bath, <sup>3</sup>University of Leeds, <sup>4</sup>Bangor University</span>
+                    <span class="author-block" style="margin-bottom: 0.5rem; display: block;">IEEE Journal of Biomedical and Health Informatics</span>
                     <span class="eql-cntrb"><sup>†</sup>Corresponding Author: <a href="mailto:zhenhong.li@manchester.ac.uk">zhenhong.li@manchester.ac.uk</a></span>
                   </div>
 
                   <div class="column has-text-centered" style="margin-top: 1.2rem;">
-                    <!-- <div class="publication-links">
+                    <div class="publication-links">
+                         <!-- Arxiv PDF link -->
                       <span class="link-block">
                         <a href="https://ieeexplore.ieee.org/document/11028588" target="_blank"
                         class="external-link button is-normal is-rounded is-dark">
@@ -98,7 +101,7 @@
                         </span>
                         <span>Paper</span>
                       </a>
-                    </span> -->
+                    </span>
 
                     <!-- Supplementary PDF link -->
                     <!-- <span class="link-block">
@@ -124,7 +127,7 @@
 
                 <!-- ArXiv abstract Link -->
                 <span class="link-block">
-                  <a href="https://arxiv.org/abs/2506.22459" target="_blank"
+                  <a href="https://arxiv.org/abs/2506.10933" target="_blank"
                   class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                     <i class="ai ai-arxiv"></i>
@@ -151,7 +154,7 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Accurately decoding human motion intentions from surface electromyography (sEMG) is essential for myoelectric control and has wide applications in rehabilitation robotics and assistive technologies. However, existing sEMG-based motion estimation methods often rely on subject-specific musculoskeletal (MSK) models that are difficult to calibrate, or purely data-driven models that lack physiological consistency. This paper introduces a novel Physics-Embedded Neural Network (PENN) that combines interpretable  MSK forward-dynamics with data-driven residual learning, thereby preserving physiological consistency while achieving accurate motion estimation. The PENN employs a recursive temporal structure to propagate historical estimates and a lightweight convolutional neural network for residual correction, leading to robust and temporally coherent estimations. A two-phase training strategy is designed for PENN. Experimental evaluations on six healthy subjects show that PENN outperforms state-of-the-art baseline methods in both root mean square error (RMSE) and $R^2$ metrics. 
+            Steady-state visual evoked potential (SSVEP)-based brain-computer interfaces (BCIs) can achieve high recognition accuracy with sufficient training data. Transfer learning presents a promising solution to alleviate data requirements for the target subject by leveraging data from source subjects; however, effectively addressing individual variability among both target and source subjects remains a challenge. This paper proposes a novel transfer learning framework, termed instance-based task-related component analysis (iTRCA), which leverages knowledge from source subjects while considering their individual contributions. iTRCA extracts two types of features: (1) the subject-general feature, capturing shared information between source and target subjects in a common latent space, and (2) the subject-specific feature, preserving the unique characteristics of the target subject. To mitigate negative transfer, we further design an enhanced framework, subject selection-based iTRCA (SS-iTRCA), which integrates a similarity-based subject selection strategy to identify appropriate source subjects for transfer based on their task-related components (TRCs). Comparative evaluations on the Benchmark, BETA, and a self-collected dataset demonstrate the effectiveness of the proposed iTRCA and SS-iTRCA frameworks. This study provides a potential solution for developing high-performance SSVEP-based BCIs with reduced target subject data.
           </p>
         </div>
       </div>
@@ -173,17 +176,19 @@
           <h2 class="title is-3 has-text-centered">Methodology</h2>
           <div class="item">
             <!-- Your image here -->
-            <img src="static/images/PENN_Framework.png" alt="Research Methodology"/>
+            <img src="static/images/iTRCA.jpg" alt="Research Methodology"/>
             <div class="content has-text-justified" style="margin-top: 1.5rem; margin-bottom: 1rem;">
               <h6 class="subtitle has-text-centered">
-              Overview of the proposed PENN framework.
+              Overview of the proposed iTRCA framework.
               </h6>
               <p>
-                The PENN framework proposed in this paper adopts a hybrid architecture, comprising a physics-embedded module and a CNN-based residual learning module. In the physics-embedded module, MSK forward dynamics are integrated to provide physiologically inconsistent motion estimation. The CNN-based residual learning module captures nonlinear residuals that the physics-embedded module cannot model, effectively bridging the gap between MSK forward dynamics and the complex EMG-to-kinematics mapping.  It adopts a recursive temporal context integration strategy, where pre-processed sEMG signals at the current time step and historical estimations of joint angles at the previous two time steps are input into the recursive structure unit. Then, the current output of the physics-embedded module is incorporated into the physical fusion layer (a fully connected layer) to enhance residual learning.
+                The figure illustrates the proposed iTRCA (instance-based task-related component analysis) framework. For the $i$-th stimulus, the shared information across subjects is captured in a common latent space (the blue block) where source instances and the target subject's individual template are maximally correlated through weight vector $\hat{\mathbf{w}}_i^{GS}$ and the spatial filter $\hat{\mathbf{w}}_i^{GT}$. Meanwhile, target subject's individual information is captured by the spatial filter $\hat{\mathbf{w}}_i^{T_a}$ based on TRCA. In the test stage, the feature $\rho_i$ is composed of the subject-general feature $\rho_{1,i}$ and the subject-specific feature $\rho_{2,i}$, and then combined across all sub-bands to formulate the feature $r_i$ used for SSVEP recognition.
               </p>
               <p>
-                This module leverages a Hill-based forward dynamics model to generate an intermediate estimate  $\theta^{Phy}_{t}$ using previous estimates $\hat{\theta}_{t-1}$, $\hat{\theta}_{t-2}$ and pre-processed sEMG signals $u_{i,t}$, where $t$ is the time step and $i=1,\cdots,N$  is the index of the muscle. The Hill-based forward dynamics model in this paper includes Hill-type muscle models (muscle activation models, muscle-tendon dynamics models) and a joint dynamics model. Hill-type muscle models are widely used in model-based approaches to describe the sEMG-force relationship for individual muscles. To reduce numerical stiffness in the muscle-tendon dynamics model, we assume the tendon to be rigid, which implies that the pennated muscle element, comprising a contractile element in parallel with a passive elastic element, is connected to an inextensible tendon element.  The following provides a detailed explanation of the Hill-based forward dynamics model.
+                iTRCA computes the task-related components (TRCs) of source subjects as source instances and then projects them into a latent space, where these source instances and the target subject's template exhibit maximal correlation. This latent space captures the underlying characteristics of SSVEP responses shared between source and target subjects, while accounting for the varying contributions of individual source subjects. Meanwhile, iTRCA captures target subject's individual characteristics using TRCA.
               </p>
+              <p>
+                <strong>However, not all source subjects contribute positively to the target subject's performance. </strong>  When the knowledge learned from source subjects have a detrimental effect on the target subject (e.g., reducing recognition accuracy), the transfer is regarded as negative transfer. To address this issue, the proposed iTRCA framework is further enhanced by the subject selection-based iTRCA (SS-iTRCA), which integrates a similarity-based subject selection strategy to identify appropriate source subjects for transfer based on their TRCs. This approach mitigates negative transfer by ensuring that only relevant source subjects contribute to the transfer learning process.
               </p>
             </div>
             </div>
@@ -207,36 +212,44 @@
           <div class="item">
             <!-- Multi-subfigure layout -->
             <div class="columns is-multiline is-centered">
-              <div class="column is-half">
+              <div class="column is-one-third">
                 <figure class="image">
-                  <img src="static/images/Loss.png" alt="Value of loss function $L_{total}$ during training"/>
+                  <img src="static/images/TRCA_iTRCA_SS@tw_benchmark-eps-converted-to_1.png" alt="Benchmark Dataset Results"/>
                   <figcaption class="has-text-centered" style="margin-top: 0.5rem;">
-                    <strong>(a)</strong>
+                    <strong>(a) Benchmark</strong>
                   </figcaption>
                 </figure>
               </div>
-              <div class="column is-half">
+              <div class="column is-one-third">
                 <figure class="image">
-                  <img src="static/images/Comparison.png" alt="Wrist joint angle estimated by PENN, CNN-LSTM, and Bi-LSTM for Subject two"/>
+                  <img src="static/images/TRCA_iTRCA_SS@tw_beta-eps-converted-to_1.png" alt="BETA Dataset Results"/>
                   <figcaption class="has-text-centered" style="margin-top: 0.5rem;">
-                    <strong>(b) </strong>
+                    <strong>(b) BETA</strong>
+                  </figcaption>
+                </figure>
+              </div>
+              <div class="column is-one-third">
+                <figure class="image">
+                  <img src="static/images/TRCA_iTRCA_SS@tw_yue-eps-converted-to_1.jpg" alt="Self-collected Dataset Results"/>
+                  <figcaption class="has-text-centered" style="margin-top: 0.5rem;">
+                    <strong>(c) Self-collected</strong>
                   </figcaption>
                 </figure>
               </div>
             </div>
             
             <div class="content has-text-justified" style="margin-top: 2rem;">
-            <p class="has-text-centered">
-              <span>
-                <strong>Figure 1.</strong> (a) Value of loss function $L_{total}$ during training.
-              </span><br>
-              <span>
-                (b) Wrist joint angle estimated by PENN, CNN-LSTM, and Bi-LSTM for Subject two
-              </span>
-            </p>
-                The figure 1 (a) shows the Value of loss function $L_{total}$ during training. (b) shows the wrist joint angle estimated by PENN, CNN-LSTM, and Bi-LSTM for Subject two. The results demonstrate that the proposed PENN framework achieves superior performance in estimating wrist joint angles compared to the baseline methods CNN-LSTM and Bi-LSTM. The loss function $L_{total}$ converges to a low value, indicating effective training of the model.
+              <p class="has-text-centered" style="font-style: italic; margin-bottom: 1.5rem;">
+                <strong>Figure 1.</strong> The average recognition accuracy and ITR for TRCA, iTRCA and SS-iTRCA across all subjects for different $d$ on three datasets: (a) Benchmark, (b) BETA, and (c) Self-collected. Error bars represent SEM. Asterisks indicate the statistically significant difference between two algorithms ($*: p<0.05$, $**: p<0.01$, $***: p<0.001$, $****: p<0.0001$). Accuracy and ITR are analyzed by two-way and one-way repeated-measures ANOVA, respectively.
+              </p>
               <p>
-                The figure 1 (b) shows the ground truth wrist angle $\theta$ and estimated angle $\hat{\theta}$ from PENN and the baseline methods. The angle trajectory estimated by PENN closely aligns with the ground truth, maintaining temporal coherence and minimizing phase lag.  In contrast, the baseline models show larger deviations and inconsistencies, particularly during dynamic transitions. These results demonstrate the improved estimation accuracy and temporal consistency of PENN. 
+                The figure shows the average accuracy and ITR across all subjects for $d$ ranging from 0.2 s to 1 s in 0.2 s increments, with $N_c = 9$, $N_{tb} = 3$, and $c_{lb} = 0.9$.
+                Across all datasets, recognition accuracy of all algorithms increases monotonically with $d$, suggesting that longer data segments provide more reliable information for recognition when $d<1$ s.
+              </p>
+              <p>
+                On public datasets (Benchmark and BETA), iTRCA outperforms TRCA from 0.4 s onward, with SS-iTRCA further improving accuracy. However, the extent of improvement varies: on BETA, SS-iTRCA shows a more pronounced accuracy enhancement over iTRCA as $d$ increases, whereas on Benchmark, the accuracy difference is less significant. On the self-collected dataset, iTRCA consistently outperforms TRCA across all $d$ values, while SS-iTRCA achieves comparable accuracy to iTRCA, with no statistically significant differences observed. Regarding ITR, the results across all datasets show a consistent pattern: ITR increases rapidly from 0.2 s to 0.6 s, peaks around 0.8 s, and either stabilizes or slightly declines at 1 s. Unlike the monotonic increase in accuracy, ITR exhibits a growth-and-decline trend as $d$ increases, reflecting the trade-off between recognition speed and accuracy: longer $d$ enhances accuracy but also reduces speed, potentially lowering overall transfer efficiency.
+
+                On public datasets, SS-iTRCA achieves the highest ITR from 0.4 s onward, TRCA the lowest, and iTRCA lies in between. On the self-collected dataset, SS-iTRCA and iTRCA show comparable ITR performance, while TRCA consistently lags behind across all $d$ values.
               </p>        
             </div>
             <!-- Subject Selection Analysis - Figure 2 -->
@@ -246,11 +259,28 @@
                 <!-- Multi-subfigure layout for subject selection -->
                 <div class="columns is-multiline is-centered">
                   <!-- First row: two subfigures -->
+                  <div class="column is-half">
+                    <figure class="image">
+                      <img src="static/images/ss_clb-eps-converted-to_1.jpg" alt="Average recognition accuracy across all subjects"/>
+                      <figcaption class="has-text-centered" style="margin-top: 0.5rem;">
+                        <strong>(a)</strong> Average recognition accuracy across all subjects
+                      </figcaption>
+                    </figure>
+                  </div>
+                  <div class="column is-half">
+                    <figure class="image">
+                      <img src="static/images/ss_Nsrc-eps-converted-to_1.jpg" alt="Number of selected source subjects"/>
+                      <figcaption class="has-text-centered" style="margin-top: 0.5rem;">
+                        <strong>(b)</strong> Number of selected source subjects
+                      </figcaption>
+                    </figure>
+                  </div>
+                  <!-- Second row: one centered subfigure -->
                   <div class="column is-two-thirds">
                     <figure class="image">
-                      <img src="static/images/Paried_t.png" alt="Average recognition accuracy across all subjects"/>
+                      <img src="static/images/ss_allsubs-eps-converted-to_1.jpg" alt="Selected source subjects for each target subject"/>
                       <figcaption class="has-text-centered" style="margin-top: 0.5rem;">
-                        <strong></strong>
+                        <strong>(c)</strong> Selected source subjects for each target subject at different thresholds
                       </figcaption>
                     </figure>
                   </div>
@@ -258,10 +288,11 @@
                 
                 <div class="content has-text-justified" style="margin-top: 2rem;">
                   <p class="has-text-centered" style="font-style: italic; margin-bottom: 1.5rem;">
-                    <strong>Figure 2.</strong> illustrates the differences among the three methods based on paired t-test results. Asterisks indicate the statistically significant difference between two methods <br>(* for $p < 0.05$, ** for $p < 0.01$). 
+                    <strong>Figure 2.</strong> Subject selection performance on Benchmark. (a) Average recognition accuracy across all subjects. (b) The number of selected source subjects where the scatter point represents the target subject and the gray bar represents the average number across 35 target subjects. (c) The number of selected source subjects for each target subject at different thresholds $c_{lb}$. For example, for target subject 1, the number of selected source subjects is 15, 12, 10, 7, and 3 at $c_{lb}=$ 0.5, 0.6, 0.7, 0.8, and 0.9, respectively. For target subject 11, all source subjects are included, corresponding to the case where the subject selection strategy is not triggered.
+                  </p>
                   
                   <p>
-                    Figure 2 shows that PENN not only significantly improves estimation accuracy, but also exhibits consistently lower variance across subjects, which implies enhanced robustness to inter-subject differences.
+                    Figure 2(a) reveals the occurrence of negative transfer. As $c_{lb}$ decreases ($c_{lb} \leq 0.8$), more source subjects with lower similarity to the target subject are included, leading to a decline in accuracy. This finding coincides with the negative transfer phenomenon, where dissimilar source data can hurt the target task (target subject's SSVEP recognition in this study), highlighting the importance of source subject selection. Moreover, it demonstrates that the designed TRC-based similarity metric can reflect the similarity between source and target subjects, thereby improving recognition accuracy even with fewer, but more relevant, source subjects.
                   </p>
                   
                 </div>
@@ -269,7 +300,41 @@
             </div>
             
             <!-- Transfer Learning Comparison - Figure 3 -->
+            <div style="margin-top: 3rem;">
 
+              <div class="item">
+                <!-- Two subfigure layout for transfer learning comparison -->
+                <div class="columns is-centered">
+                  <div class="column is-half">
+                    <figure class="image">
+                      <img src="static/images/TF_subfigure_accuracy-eps-converted-to_1.png" alt="Recognition accuracy comparison"/>
+                      <figcaption class="has-text-centered" style="margin-top: 0.5rem;">
+                        <strong>(a)</strong> Recognition accuracy
+                      </figcaption>
+                    </figure>
+                  </div>
+                  <div class="column is-half">
+                    <figure class="image">
+                      <img src="static/images/TF_subfigure_computationCost-eps-converted-to_1.jpg" alt="Computation cost comparison"/>
+                      <figcaption class="has-text-centered" style="margin-top: 0.5rem;">
+                        <strong>(b)</strong> Computation cost
+                      </figcaption>
+                    </figure>
+                  </div>
+                </div>
+                
+                <div class="content has-text-justified" style="margin-top: 2rem;">
+                  <p class="has-text-centered" style="font-style: italic; margin-bottom: 1.5rem;">
+                    <strong>Figure 3.</strong> Performance comparison between the proposed methods (SS-iTRCA and iTRCA) with existing transfer learning methods (transRCA, DGTF, and CSSFT). (a) Recognition accuracy, with a paired t-test conducted between iTRCA and transRCA. (b) Training and inference time for each method, where the test time corresponds to a block comprising 40 test trials in the benchmark dataset.
+                  </p>
+                  
+                  <p>
+                   All experiments are conducted using MATLAB R2022a on a Windows 11 system, equipped with a 13th Intel Core i7-13700H CPU running at 2.40 GHz and an NVIDIA GeForce RTX 4070 Laptop GPU. The proposed frameworks consistently outperforms TransRCA, DGTF, and CSSFT across all $d$ values, with statistically significant differences. For both training and inference stages, SS-iTRCA, iTRCA and TransRCA exhibit significantly lower computational costs compared to CSSFT and DGTF. Although TransRCA achieves shorter training time than SS-iTRCA and iTRCA, there is no statistically significant difference in inference time among them, which is crucial for real-time signal recognition. Compared with accuracy-based subject selection method CSSFT, the proposed similarity-based subject selection strategy SS-iTRCA substantially reduces the computation cost.
+                  </p>
+                
+                </div>
+              </div>
+            </div>
             
           </div>
         </div>
@@ -331,14 +396,15 @@
   <section class="section" id="BibTeX">
     <div class="container is-max-desktop content">
       <h2 class="title has-text-centered">BibTeX</h2>
-      <pre><code>@misc{heng2025penn,
-  author={Wending Heng and Chaoyuan Liang and Yihui Zhao and Zhiqiang Zhang and Glen Cooper and Zhenhong Li},
-  title={Physics-Embedded Neural Networks for sEMG-based Continuous Motion Estimation}, 
+      <pre><code>@ARTICLE{11028588,
+  author={Wang, Ziwen and Zhang, Yue and Zhang, Zhiqiang and Xie, Sheng Quan and Lanzon, Alexander and Heath, William P. and Li, Zhenhong},
+  journal={IEEE Journal of Biomedical and Health Informatics}, 
+  title={Instance-Based Transfer Learning with Similarity-Aware Subject Selection for Cross-Subject SSVEP-Based BCIs}, 
   year={2025},
-  archivePrefix={arXiv},
-  eprint={2506.22459},
-  primaryClass={eess.SP},
-  doi={10.48550/arXiv.2506.22459}}</code></pre>
+  volume={},
+  number={},
+  pages={1-11},
+  doi={10.1109/JBHI.2025.3577813}}</code></pre>
     </div>
 </section>
 <!--End BibTex citation -->
