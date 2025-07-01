@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .git
 .gitignore
 README.md
@@ -5,3 +6,12 @@ Dockerfile
 docker-compose.yml
 .dockerignore
 *.md
+=======
+.git
+.gitignore
+README.md
+Dockerfile
+docker-compose.yml
+.dockerignore
+*.md
+>>>>>>> 52c0f9f6809caef0f5deb20b500c7583455d33ad
