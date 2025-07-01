@@ -26,53 +26,35 @@
 
   <title>Physics-Embedded Neural Networks for sEMG-based Continuous Motion Estimation</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤖</text></svg>">
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
-  rel="stylesheet">
+  
+  <!-- Preconnect to external domains for faster loading -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://ajax.googleapis.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  
+  <!-- Optimize font loading with display=swap -->
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro&display=swap" rel="stylesheet">
 
+  <!-- Load critical CSS synchronously -->
   <link rel="stylesheet" href="static/css/bulma.min.css">
-  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
-  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
-  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
-  <link rel="stylesheet"
-  href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="static/css/index.css">
+  
+  <!-- Load non-critical CSS asynchronously -->
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" media="print" onload="this.media='all'">
+  
+  <!-- Fallback for users with JavaScript disabled -->
+  <noscript>
+    <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  </noscript>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
-  <script defer src="static/js/fontawesome.all.min.js"></script>
-  <script src="static/js/bulma-carousel.min.js"></script>
-  <script src="static/js/bulma-slider.min.js"></script>
-  <script src="static/js/index.js"></script>
-  
-  <!-- MathJax for LaTeX math rendering -->
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-  
-  <!-- Marked.js for Markdown parsing -->
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  
-  <script>
-    MathJax = {
-      tex: {
-        inlineMath: [['$', '$'], ['\\(', '\\)']],
-        displayMath: [['$$', '$$'], ['\\[', '\\]']]
-      }
-    };
-    
-    // Render Markdown content when page loads
-    document.addEventListener('DOMContentLoaded', function() {
-      const markdownElements = document.querySelectorAll('.markdown-content');
-      markdownElements.forEach(function(element) {
-        const markdownText = element.getAttribute('data-markdown');
-        element.innerHTML = marked.parse(markdownText);
-      });
-      
-      // Re-render MathJax after Markdown is processed
-      if (window.MathJax) {
-        MathJax.typesetPromise();
-      }
-    });
-  </script>
+
 </head>
 <body>
 
@@ -402,6 +384,54 @@
 <!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
 
     <!-- End of Statcounter Code -->
+
+    <!-- Move all JavaScript to bottom for better loading performance -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" defer></script>
+    <!-- Removed unused Adobe PDF viewer script for better performance -->
+    <!-- <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script> -->
+    <script src="static/js/fontawesome.all.min.js" defer></script>
+    <script src="static/js/bulma-carousel.min.js" defer></script>
+    <script src="static/js/bulma-slider.min.js" defer></script>
+    <script src="static/js/index.js" defer></script>
+    
+    <!-- LOCAL MathJax for faster loading -->
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']]
+        },
+        startup: {
+          ready: function () {
+            MathJax.startup.defaultReady();
+            // Process math after page loads
+            MathJax.typesetPromise();
+          }
+        }
+      };
+    </script>
+    <script src="static/js/mathjax/es5/tex-mml-chtml.js"></script>
+    
+    <!-- LOCAL Marked.js for faster loading -->
+    <script src="static/js/marked.min.js"></script>
+    
+    <script>
+      // Render Markdown content when page loads
+      document.addEventListener('DOMContentLoaded', function() {
+        const markdownElements = document.querySelectorAll('.markdown-content');
+        markdownElements.forEach(function(element) {
+          const markdownText = element.getAttribute('data-markdown');
+          if (markdownText) {
+            element.innerHTML = marked.parse(markdownText);
+          }
+        });
+        
+        // Re-render MathJax after Markdown is processed
+        if (window.MathJax && window.MathJax.typesetPromise) {
+          MathJax.typesetPromise();
+        }
+      });
+    </script>
 
   </body>
   </html>
