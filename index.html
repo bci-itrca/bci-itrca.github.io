@@ -389,11 +389,30 @@
   </section> -->
 <!--End paper poster -->
 
-<video width="640" height="360" controls>
-  <source src="static/videos/video-source.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
-
+<!-- Video Presentation Section -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3 has-text-centered">Common Space Visualization</h2>
+          <div class="has-text-centered" style="margin-bottom: 1.5rem;">
+            <video width="640" height="360" controls style="max-width: 100%; height: auto;">
+              <source src="static/videos/final video_crop.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <div class="content has-text-justified">
+            <p>
+              This visualization presents a comprehensive view of neurophysiological signals and their transformations in the iTRCA framework. The left side displays data from three different source subjects, showing current source density (CSD) on the cortex, signal power distribution on the scalp, and multichannel EEG signals. The right side shows corresponding data from the target subject. The central portion is the constructed common space based on iTRCA where source data (projected via weight vector $\hat{\mathbf{w}}^{GS}$) and target data (transformed via spatial filter $\hat{\mathbf{w}}^{GT}$) achieve high correlation (0.74) despite their significant neurophysiological differences. This visualization demonstrates the effectiveness of the iTRCA in capturing shared information across subjects while accommodating individual variability.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Video Presentation Section -->
 
 <!--BibTex citation -->
   <section class="section" id="BibTeX">
