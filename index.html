@@ -397,14 +397,13 @@
         <div class="column is-four-fifths">
           <h2 class="title is-3 has-text-centered">Common Space Visualization</h2>
           <div class="has-text-centered" style="margin-bottom: 1.5rem;">
-            <video width="640" height="360" controls style="max-width: 100%; height: auto;">
-              <source src="static/videos/final video_crop.mp4" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
+            <div class="publication-video">
+              <iframe src="https://www.youtube.com/embed/_naFsvInh18" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen style="width: 100%; height: 100%;"></iframe>
+            </div>
           </div>
           <div class="content has-text-justified">
             <p>
-              This visualization presents a comprehensive view of neurophysiological signals and their transformations in the iTRCA framework. The left side displays data from three different source subjects, showing current source density (CSD) on the cortex, signal power distribution on the scalp, and multichannel EEG signals. The right side shows corresponding data from the target subject. The central portion is the constructed common space based on iTRCA where source data (projected via weight vector $\hat{\mathbf{w}}^{GS}$) and target data (transformed via spatial filter $\hat{\mathbf{w}}^{GT}$) achieve high correlation (0.74) despite their significant neurophysiological differences. This visualization demonstrates the effectiveness of the iTRCA in capturing shared information across subjects while accommodating individual variability.
+              This visualization presents a comprehensive view of neurophysiological signals and their transformations in the iTRCA framework, using the visual stimulus frequency of 9.6 Hz as an example. The left side displays data from three different source subjects, showing current source density (CSD) on the cortex, signal power distribution on the scalp (for the frequency band 9.5–9.7 Hz), and multichannel EEG signals. The right side shows corresponding data from the target subject. The central portion is the constructed common space based on iTRCA where source data (projected via weight vector $\hat{\mathbf{w}}^{GS}$) and target data (transformed via spatial filter $\hat{\mathbf{w}}^{GT}$) achieve high correlation (0.74) despite their significant neurophysiological differences. This high correlation indicates that the extracted common information between source subjects and the target subject is strongly aligned, demonstrating the effectiveness of the iTRCA in capturing shared information across subjects while accommodating individual variability.
             </p>
           </div>
         </div>
